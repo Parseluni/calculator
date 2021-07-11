@@ -1,24 +1,37 @@
+def calculator():
 
-def add(num1, num2):
-    return (num1 + num2)
+    print("calculator is on")
 
-def subtract(num1, num2):
-    return (num1 - num2)
+    num1_input = input("Please enter first number: ")
+    operation = input("Please enter operation: ")
+    num2_input = input("Please enter second number: ")
 
-def multiply(num1, num2):
-    return (num1 * num2)
+    if not num1_input.isnumeric() or not num2_input.isnumeric():
+        return "Please enter a valid number"
+    else:
+        num1 = int(num1_input)
+        num2 = int(num2_input)
 
-def divide(num1, num2):
-    return(num1 / num2)
-
-def calculator(num1, num2, operation):
-    if operation == add:
-        return add(num1, num2)
-    elif operation == subtract:
-        return subtract(num1, num2)
-    elif operation == multiply:
-        return multiply(num1, num2)
-    elif operation == divide:
-        return divide(num1, num2)
+    if operation == 'addition' or operation == 'plus' or operation == '+':
+        return addition(num1, num2)
+    elif operation == 'subtraction' or operation == 'minus' or operation == '-':
+        return subtraction(num1, num2)
+    elif operation == 'multiplication' or operation == 'times' or operation == '*':
+        return multiplication(num1, num2)
+    elif operation == 'division' or operation == 'divided by' or operation == '/':
+        return division(num1, num2)
     else:
         return "Invalid choice"
+
+def addition(num1, num2):
+    return (num1 + num2)
+
+def subtraction(num1, num2):
+    return (num1 - num2)
+
+def multiplication(num1, num2):
+    return (num1 * num2)
+
+def division(num1, num2):
+    result = round((num1 / num2), 2)
+    return result
